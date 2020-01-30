@@ -7,24 +7,60 @@
 //
 
 import UIKit
+import ImageSlideshow
 
 class MovieDetailViewController: UIViewController {
-
+    
+    //MARK: - UI
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var overviewLabel: UILabel!
+    @IBOutlet weak var slideShow: ImageSlideshow!
+    
+    //MARK: - Variables
+    var movieInfo: MovieDetailViewModel!
+    
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        self.setup()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //MARK: - Helper Methods
+    private func setup() {
+        self.setupSlideShow()
+        self.setupInfo()
     }
-    */
-
+    
+    private func setupSlideShow() {
+        self.slideShow.circular = false
+        let pageIndicator = UIPageControl()
+        pageIndicator.currentPageIndicatorTintColor = UIColor.black
+        pageIndicator.pageIndicatorTintColor = UIColor.lightGray
+        self.slideShow.pageIndicator = pageIndicator
+        self.slideShow.pageIndicatorPosition = PageIndicatorPosition(horizontal: .right(padding: 20), vertical: .bottom)
+        self.slideShow.activityIndicator = DefaultActivityIndicator(style: .large, color: nil)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapImageSlideShow))
+        self.slideShow.addGestureRecognizer(tapGesture)
+    }
+    
+    private func setupInfo() {
+        self.titleLabel.text = self.movieInfo.title
+        self.dateLabel.text = self.movieInfo.releaseDate
+        self.ratingLabel.text = "Rating: \(self.movieInfo.rating)"
+        self.overviewLabel.text = self.movieInfo.overview
+        guard let frontImageUrl = self.movieInfo.imageFrontUrl, let backImageUrl = self.movieInfo.imageBackUrl else {return}
+        let images = [
+            SDWebImageSource(url: frontImageUrl),
+            SDWebImageSource(url: backImageUrl)
+        ]
+        self.slideShow.setImageInputs(images)
+    }
+    
+    //MARK: - Actions
+    @objc func didTapImageSlideShow() {
+        self.slideShow.presentFullScreenController(from: self)
+    }
 }

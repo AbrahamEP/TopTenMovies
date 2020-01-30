@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MovieTableViewCell: UITableViewCell {
     
@@ -24,6 +25,8 @@ class MovieTableViewCell: UITableViewCell {
     private func setupInfo() {
         self.textLabel?.text = self.movieInfo.title
         self.detailTextLabel?.text = self.movieInfo.releaseDate
+        self.imageView?.sd_setImage(with: self.movieInfo.imageURL, placeholderImage: #imageLiteral(resourceName: "MoviePlaceholder"))
+        self.imageView!.contentMode = .scaleAspectFit
     }
     
 }

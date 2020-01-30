@@ -1,18 +1,32 @@
 PODS:
+  - ImageSlideshow (1.8.3):
+    - ImageSlideshow/Core (= 1.8.3)
+  - ImageSlideshow/Core (1.8.3)
+  - ImageSlideshow/SDWebImage (1.8.3):
+    - ImageSlideshow/Core
+    - SDWebImage (>= 3.7)
+  - MBProgressHUD (1.2.0)
   - SDWebImage (5.5.2):
     - SDWebImage/Core (= 5.5.2)
   - SDWebImage/Core (5.5.2)
 
 DEPENDENCIES:
+  - ImageSlideshow (~> 1.8.3)
+  - ImageSlideshow/SDWebImage
+  - MBProgressHUD (~> 1.2.0)
   - SDWebImage (~> 5.0)
 
 SPEC REPOS:
   trunk:
+    - ImageSlideshow
+    - MBProgressHUD
     - SDWebImage
 
 SPEC CHECKSUMS:
+  ImageSlideshow: 4694d7d699a1549582e7cc631fb392d8f91630f3
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   SDWebImage: 4d5c027c935438f341ed33dbac53ff9f479922ca
 
-PODFILE CHECKSUM: ea13e584dbb05fe26b34a31b2239809484b19cb3
+PODFILE CHECKSUM: 66fcf26438c0e245a46e56df4736b524c99a33e8
 
 COCOAPODS: 1.8.4

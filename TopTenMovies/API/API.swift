@@ -10,9 +10,9 @@ import Foundation
 class API {
     static let shared = API()
     private let session = URLSession.shared
-    private let url = URL(string: "https://api.themoviedb.org/3/movie/top_rated?api_key=1a48730d4857aee7373a03e2c418c44f")!
+    private let url = URL(string: "https://api.themoviedb.org/3/movie/top_rated?api_key=1a48730d4857aee7373a03e2c418c44f&page=1")!
     
-    func getMovies(completion: @escaping (_ movies: Pagination<Movie>?, _ errorMessage: String?) -> Void) {
+    func getMovies(completion: @escaping (_ movies: [Movie]?, _ errorMessage: String?) -> Void) {
         let task = session.dataTask(with: url) { (data, response, error) in
             DispatchQueue.main.async {
                 if let error = error {
@@ -37,11 +37,18 @@ class API {
                 }
                 
                 do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
                     let decoder = JSONDecoder()
                     decoder.keyDecodingStrategy = .convertFromSnakeCase
                     let movies = try decoder.decode(Pagination<Movie>.self, from: data)
-                    completion(movies, nil)
+                    
+                    let firstTopTen = Array(movies.results.prefix(10))
+                    
+                    if MoviesHelper.getSavedMovies() == nil {
+                        MoviesHelper.saveMovies(firstTopTen)
+                        MoviesHelper.saveLastDate(Date())
+                    }
+                    
+                    completion(firstTopTen, nil)
                 } catch {
                     let err = error.localizedDescription
                     print(err)

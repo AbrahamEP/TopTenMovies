@@ -14,7 +14,15 @@ struct Movie: Codable {
     var video: Bool
     var adult: Bool
     var posterPath: String
+    var posterImageFullPath: URL? {
+        return URL(string: "https://image.tmdb.org/t/p/w500\(self.posterPath)")
+    }
+    
     var backdropPath: String
+    var backdropImageFullPath: URL? {
+        return URL(string: "https://image.tmdb.org/t/p/w500\(self.backdropPath)")
+    }
+    
     var id: Int
     var title: String
     var voteAverage: Double
@@ -23,16 +31,6 @@ struct Movie: Codable {
     var originalLanguage: String
     var originalTitle: String
     var genreIds: [Int]
-//    enum CodingKeys: String, CodingKey {
-//        case id, title, popularity, overview
-//        case voteCount = "vote_count"
-//        case posterPath = "poster_path"
-//        case voteAverage = "vote_average"
-//        case releaseDate = "release_Date"
-//        case hasVideo = "video"
-//        case isAdult = "adult"
-//        case backdropPath = "backdrop_path"
-//        case originalLanguage = "original_language"
-//        case originalTitle = "original_title"
-//    }
+    
+    
 }

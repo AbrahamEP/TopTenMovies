@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,9 @@
 		A30FBA7B23E2507E00EA4D98 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30FBA7A23E2507E00EA4D98 /* MovieTableViewCell.swift */; };
 		A30FBA7E23E252A700EA4D98 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30FBA7D23E252A700EA4D98 /* API.swift */; };
 		A30FBA8023E2623100EA4D98 /* Pagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30FBA7F23E2623100EA4D98 /* Pagination.swift */; };
+		A30FBA8223E285FD00EA4D98 /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30FBA8123E285FD00EA4D98 /* MovieDetailViewModel.swift */; };
+		A30FBA8523E295E600EA4D98 /* MoviesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30FBA8423E295E600EA4D98 /* MoviesHelper.swift */; };
+		A30FBA8723E29C9500EA4D98 /* MyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30FBA8623E29C9500EA4D98 /* MyExtensions.swift */; };
 		EC9E9F8BE72CA675C2A5D218 /* Pods_TopTenMovies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A47943EFA0DCDBC3BAEF7A6 /* Pods_TopTenMovies.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +42,9 @@
 		A30FBA7A23E2507E00EA4D98 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		A30FBA7D23E252A700EA4D98 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		A30FBA7F23E2623100EA4D98 /* Pagination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pagination.swift; sourceTree = "<group>"; };
+		A30FBA8123E285FD00EA4D98 /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
+		A30FBA8423E295E600EA4D98 /* MoviesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesHelper.swift; sourceTree = "<group>"; };
+		A30FBA8623E29C9500EA4D98 /* MyExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyExtensions.swift; sourceTree = "<group>"; };
 		B5A3E1E5E29DC09BC3A3E025 /* Pods-TopTenMovies.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TopTenMovies.release.xcconfig"; path = "Target Support Files/Pods-TopTenMovies/Pods-TopTenMovies.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,7 +66,6 @@
 				990B05654E096A4827332A42 /* Pods-TopTenMovies.debug.xcconfig */,
 				B5A3E1E5E29DC09BC3A3E025 /* Pods-TopTenMovies.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -93,6 +98,7 @@
 		A30FBA5A23E22BB000EA4D98 /* TopTenMovies */ = {
 			isa = PBXGroup;
 			children = (
+				A30FBA8323E2951200EA4D98 /* Helper */,
 				A30FBA7C23E2529200EA4D98 /* API */,
 				A30FBA7923E2506500EA4D98 /* Views */,
 				A30FBA7423E2362C00EA4D98 /* Models */,
@@ -122,6 +128,7 @@
 				A30FBA7523E2365000EA4D98 /* Movie.swift */,
 				A30FBA7723E24DC900EA4D98 /* MovieInfoCell.swift */,
 				A30FBA7F23E2623100EA4D98 /* Pagination.swift */,
+				A30FBA8123E285FD00EA4D98 /* MovieDetailViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -140,6 +147,15 @@
 				A30FBA7D23E252A700EA4D98 /* API.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		A30FBA8323E2951200EA4D98 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				A30FBA8423E295E600EA4D98 /* MoviesHelper.swift */,
+				A30FBA8623E29C9500EA4D98 /* MyExtensions.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,11 +274,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A30FBA7823E24DC900EA4D98 /* MovieInfoCell.swift in Sources */,
+				A30FBA8523E295E600EA4D98 /* MoviesHelper.swift in Sources */,
 				A30FBA7323E2307C00EA4D98 /* MovieDetailViewController.swift in Sources */,
+				A30FBA8723E29C9500EA4D98 /* MyExtensions.swift in Sources */,
 				A30FBA7B23E2507E00EA4D98 /* MovieTableViewCell.swift in Sources */,
 				A30FBA5C23E22BB000EA4D98 /* AppDelegate.swift in Sources */,
 				A30FBA5E23E22BB000EA4D98 /* SceneDelegate.swift in Sources */,
 				A30FBA7123E22F8100EA4D98 /* MovieListViewController.swift in Sources */,
+				A30FBA8223E285FD00EA4D98 /* MovieDetailViewModel.swift in Sources */,
 				A30FBA8023E2623100EA4D98 /* Pagination.swift in Sources */,
 				A30FBA7E23E252A700EA4D98 /* API.swift in Sources */,
 				A30FBA7623E2365000EA4D98 /* Movie.swift in Sources */,
@@ -413,6 +432,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3ZMSM9ALSB;
 				INFOPLIST_FILE = TopTenMovies/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -432,6 +452,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3ZMSM9ALSB;
 				INFOPLIST_FILE = TopTenMovies/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

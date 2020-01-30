@@ -8,12 +8,12 @@
 
 import Foundation
 struct MovieInfoCell {
-    var imageString: String
+    var imageURL: URL?
     var title: String
     var releaseDate: String
     
     init(movie: Movie) {
-        self.imageString = movie.posterPath
+        self.imageURL = movie.posterImageFullPath
         self.title = movie.title
         self.releaseDate = movie.releaseDate
     }
