@@ -39,7 +39,7 @@ class MovieListViewController: UIViewController {
     //MARK: - Helper
     private func setup() {
         self.setupTableView()
-        
+        self.title = "Top Ten Movies"
     }
     
     private func setupMovies() {
